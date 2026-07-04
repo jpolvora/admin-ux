@@ -1,0 +1,435 @@
+/* Proxmox VE 9.1.6 Crisp Theme Clone */
+
+:root {
+  --pve-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --pve-font-size: 12px;
+  --pve-bg-color: #f5f5f5;
+  --pve-text-color: #333333;
+  --pve-border-color: #c8c8c8;
+  --pve-border-color-light: #ededed;
+  
+  --pve-header-bg: #ffffff;
+  --pve-toolbar-bg: #f5f5f5;
+  
+  --pve-primary-color: #ff6600; /* Proxmox Orange */
+  --pve-blue-selection: #c1ddf1;
+  --pve-row-alt-bg: #fafafa;
+  --pve-row-hover-bg: #eeeeee;
+  
+  --pve-panel-border: 1px solid var(--pve-border-color);
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--pve-font-family);
+  font-size: var(--pve-font-size);
+  color: var(--pve-text-color);
+  background-color: var(--pve-bg-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Layout Utilities */
+.x-viewport {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.x-border-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.x-region {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.x-region-center {
+  flex: 1;
+}
+
+/* Proxmox Top Header */
+.pve-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 38px;
+  background-color: var(--pve-header-bg);
+  border-bottom: 1px solid var(--pve-border-color);
+  padding: 0 10px;
+  user-select: none;
+}
+
+.pve-header-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pve-header-search-container {
+  flex: 1;
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.pve-header-search {
+  width: 100%;
+  max-width: 300px;
+  height: 22px;
+  border: 1px solid var(--pve-border-color);
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-size: 11px;
+  outline: none;
+  background-color: #fff;
+}
+
+.pve-header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ExtJS Toolbar */
+.x-toolbar {
+  display: flex;
+  align-items: center;
+  background: var(--pve-toolbar-bg);
+  border-bottom: var(--pve-panel-border);
+  padding: 3px 6px;
+  gap: 6px;
+  height: 28px;
+}
+
+/* Panels */
+.x-panel {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: var(--pve-panel-border);
+  overflow: hidden;
+  height: 100%;
+}
+
+.x-panel-header {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  background: linear-gradient(to bottom, #f9f9f9, #e9e9e9);
+  border-bottom: var(--pve-panel-border);
+  font-weight: bold;
+  font-size: 11px;
+  height: 24px;
+  color: #333;
+  user-select: none;
+}
+
+.x-panel-body {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+}
+
+/* Resource Tree (West) */
+.pve-tree-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 6px;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pve-tree-item:hover {
+  background-color: var(--pve-row-hover-bg);
+}
+
+.pve-tree-item.x-selected {
+  background-color: var(--pve-blue-selection);
+}
+
+/* Sub-navigation sidebar (Datacenter Options) */
+.pve-subnav {
+  width: 150px;
+  border-right: 1px solid var(--pve-border-color);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  user-select: none;
+}
+
+.pve-subnav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 11px;
+  color: #333;
+  border-bottom: 1px solid var(--pve-border-color-light);
+}
+
+.pve-subnav-item:hover {
+  background-color: var(--pve-row-hover-bg);
+}
+
+.pve-subnav-item.x-selected {
+  background-color: var(--pve-blue-selection);
+  font-weight: bold;
+}
+
+/* Grid & Tables */
+.x-grid {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: var(--pve-panel-border);
+  background: white;
+}
+
+.x-grid-header-container {
+  display: flex;
+  background: linear-gradient(to bottom, #f9f9f9, #e9e9e9);
+  border-bottom: var(--pve-panel-border);
+  font-weight: bold;
+}
+
+.x-grid-header {
+  padding: 4px 6px;
+  border-right: 1px solid var(--pve-border-color);
+  cursor: default;
+  user-select: none;
+  font-size: 11px;
+  color: #333;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.x-grid-header:last-child {
+  border-right: none;
+}
+
+.x-grid-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.x-grid-row {
+  display: flex;
+  border-bottom: 1px solid var(--pve-border-color-light);
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.x-grid-row:nth-child(even) {
+  background-color: var(--pve-row-alt-bg);
+}
+
+.x-grid-row:hover {
+  background-color: var(--pve-row-hover-bg);
+}
+
+.x-grid-row.x-selected {
+  background-color: var(--pve-blue-selection);
+  border-bottom-color: #a2c1dc;
+}
+
+.x-grid-cell {
+  padding: 4px 6px;
+  border-right: 1px solid var(--pve-border-color-light);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.x-grid-cell:last-child {
+  border-right: none;
+}
+
+/* Form Styles */
+.x-form {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.x-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.x-field-label {
+  width: 100px;
+  text-align: right;
+  font-size: 11px;
+  user-select: none;
+}
+
+.x-input {
+  height: 22px;
+  padding: 2px 6px;
+  border: 1px solid var(--pve-border-color);
+  font-family: inherit;
+  font-size: 11px;
+  flex: 1;
+  outline: none;
+}
+
+.x-input:focus {
+  border-color: #2185d0;
+}
+
+/* Buttons */
+.x-button {
+  height: 22px;
+  padding: 0 8px;
+  background: #f5f5f5;
+  border: 1px solid #c1c1c1;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11px;
+  color: #333;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  user-select: none;
+}
+
+.x-button:hover {
+  background: #e8e8e8;
+  border-color: #a8a8a8;
+}
+
+.x-button-primary {
+  background: #ff6600;
+  border-color: #d65500;
+  color: white;
+}
+
+.x-button-primary:hover {
+  background: #e85c00;
+}
+
+/* Bottom Tab Panel (Tasks) */
+.x-tabpanel-south {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: var(--pve-panel-border);
+}
+
+.x-tabpanel-bar {
+  display: flex;
+  background: #eeeeee;
+  border-bottom: 1px solid var(--pve-border-color);
+  height: 24px;
+  user-select: none;
+}
+
+.x-tabpanel-tab {
+  padding: 3px 12px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: #e0e0e0;
+  border-right: 1px solid var(--pve-border-color);
+  color: #555;
+}
+
+.x-tabpanel-tab.x-active {
+  background: white;
+  border-bottom: 1px solid transparent;
+  color: #2185d0;
+}
+
+/* Windows / Modals */
+.x-window-mask {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.x-window {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #8c8c8c;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  border-radius: 3px;
+}
+
+.x-window-header {
+  background: linear-gradient(to bottom, #fafafa, #e9e9e9);
+  padding: 6px 8px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #333;
+  border-bottom: 1px solid var(--pve-border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.x-window-close {
+  cursor: pointer;
+  font-size: 12px;
+  color: #888;
+}
+
+.x-window-close:hover {
+  color: #333;
+}
+
+.x-window-body {
+  flex: 1;
+  padding: 12px;
+  overflow: auto;
+}
+
+.x-toolbar-bottom {
+  padding: 6px 12px;
+  background: #f5f5f5;
+  border-top: 1px solid var(--pve-border-color);
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+/* Tags badge style */
+.pve-tag {
+  font-size: 9px;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: bold;
+  color: white;
+  margin-right: 3px;
+}
+.pve-tag-backup { background-color: #21ba45; color: white; }
+.pve-tag-script { background-color: #21b5a5; color: white; }
+.pve-tag-adblock { background-color: #db2828; color: white; }
+.pve-tag-alpine { background-color: #b5cc18; color: white; }
+.pve-tag-community { background-color: #21ba45; color: white; }
